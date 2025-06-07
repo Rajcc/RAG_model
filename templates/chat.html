@@ -1,0 +1,87 @@
+<html lang="en-US">
+<head>
+    <title>Chat with Llama 2</title>
+</head>
+<h3>RAG</h3>
+ <style>
+        body {
+           background-color: #E6521F;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .center-box {
+            max-width: 600px;
+            margin: 0 auto;
+           
+        }
+        
+        h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: white;
+            border-radius: 20px;
+            border-color: black;
+            padding: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            color: #333;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        input[type="submit"] {
+            padding: 5px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 10%;
+            border: none;
+            cursor: pointer;
+            background-color: white;
+            color: #FFA500;
+            font-weight: bold;
+            align-self: center;
+        }
+
+        .answer-box {
+            padding: 20px;
+            background-color: #fff3e0;
+            color: #333;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            text-align: left;
+            overflow-y: auto;
+            max-height: 60vh; /* ✅ Will scroll if too long */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-box">
+        <form method="post">
+            <input type="text" name="message" placeholder="Ask a question">
+            <input type="submit" value="Ask">
+    </form>
+    {% if answer %}
+        <div   class="answer-box">
+            {% for para in answer.split('\n\n') %}
+                <p>{{ para }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}      
+        </div>
+   
+</body>
+</html>
