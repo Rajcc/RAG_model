@@ -1,0 +1,6 @@
+.venv/
+*.lib
+*.dll
+*.pyd
+.cache/
+hftoken.env
